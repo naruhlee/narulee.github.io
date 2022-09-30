@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+     <!-- P5.JS 1 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Naraly tries P5.JS</title>
+
+
+<style>
+body{
+    background-color: #B8DEB6;
+}
+.container{
+    background-color:#ECFFEB ;
+    width: 500px;
+    height: 600px;
+    margin-left: 8%;
+}
+/* NEEDS TO BE FIXED */
+.text #open-response{
+    font-size: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+#response{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 60px;
+}
+
+#link-home{
+    margin-left: 10%;
+}
+
+/* PS.JS 1 */
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+canvas{
+    display: block;
+    margin-left: 50%;
+    margin-top: -20%;
+}
+#source{
+    margin-left: 10%;
+}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            <h2 id="open-response"> Homework 2: Response to History of Inernet Art & Auriea Harvey </h2>
+            <p id="response"> 
+                I love that this article interviews a Woman of Color,  Auriea Harvey, that paved the way for herself from the love of computers, 
+                and art. Something that stands out to me is when Harvey talks about computers being only for boys. <br>
+                Even then, she decided to pursue her career in technology;<br> In a way, Harvey was closing that gender gap <br> that occurs in tech.<br> 
+                I loved reading this piece and learning more about Harvey's work. 
+                I found it humorous when Harvey began in HTML, <br>
+                and companies would pay her good money because they thought HTML was a complex concept. 
+                It was fairly interesting to read about the term Net.art. I love this phenomenon of merging different forms of media. 
+                <p id="source"> Code inspired by KylieBuchen</p>
+
+                <p id="link-home"> Link to <a href="index.html"> homepage </a></p>
+            </p>
+        </div>
+
+        <!-- P5.JS-1 -->
+        <div class="ps-1"> </div>
+
+    </div>
+    
+
+
+
+
+    <!-- Javascript -->
+    <script>
+        var shape = false;
+
+        function setup() {
+            createCanvas(400,400);
+            background(255,193,242);
+        }
+
+        function draw() {
+            let r = random(0,255);
+            let b = random(0,255)
+            let g = random(0,255)
+            fill(r,b,g);
+        
+
+        if(shape == false) {
+            ellipse(mouseX, mouseY, 30, 30);
+        }
+        if (shape == true) {
+            print("test")
+            rect(mouseX, mouseY, 30, 30);
+        }
+
+        }
+
+        function mousePressed() {
+            shape=true;
+        }
+        function keyPressed() {
+            clear (255, 193, 242);
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>
