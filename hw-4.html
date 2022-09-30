@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Naraly & Javascript :) </title>
+    <style>
+        *,*::after, *::before
+        {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000117;
+        }
+        #poster{
+            background-color: #000117;
+            width: 580px;
+            height: calc(500px/18*24);
+            padding: 20px;
+            margin-left: 20%;
+            margin-right: 50%;
+            margin-top: -5%;
+        }
+
+        /* YOU */
+        #btn--you{
+        position: absolute;
+        margin-top: 10%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .you{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .you.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #you{
+    position: absolute;
+    }
+    .header--you{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--you .title--you{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--you .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .you--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .you--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* FAMILY */
+
+#btn--fam{
+        position: absolute;
+        margin-top: 14%;
+        margin-left: 20%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .fam{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .fam.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #fam{
+    position: absolute;
+    }
+    .header--fam{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--fam .title--fam{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--fam .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .fam--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .fam--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay1{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay1.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* Neighborhood */
+#btn--hood{
+        position: absolute;
+        margin-top: 30%;
+        margin-left: 25%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .hood{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .hood.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #hood{
+    position: absolute;
+    }
+    .header--hood{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--hood .title--hood{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--hood .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .hood--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .hood--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay2{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay2.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* EDUCATION */
+#btn--edu{
+        position: absolute;
+        margin-top: 40%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .edu{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .edu.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #edu{
+    position: absolute;
+    }
+    .header--edu{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--edu .title--edu{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--edu .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .edu--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .edu--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay3{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay3.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* JOB */
+
+#btn--job{
+        position: absolute;
+        margin-top: 55%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .job{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .job.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #job{
+    position: absolute;
+    }
+    .header--job{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--job .title--job{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--job .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .job--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .job--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay4{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay4.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* Government */
+#btn--gov{
+        position: absolute;
+        margin-top: 60%;
+        margin-left: 35%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .gov{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .gov.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #gov{
+    position: absolute;
+    }
+    .header--gov{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--gov .title--gov{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--gov .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .gov--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .gov--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay5{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay5.active{
+    pointer-events: all;
+    opacity: 1;
+}
+/* OTHERS */
+#btn--others{
+        position: absolute;
+        margin-top: 75%;
+        margin-left: 15%;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        color: white;
+        }
+
+        .others{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition:200ms ease-in-out ;
+    border: 5px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(232, 186, 225);
+    width: 800px;
+    max-width: 80%;
+    }
+
+    .others.active{
+    transform: translate(-50%, -50%) scale(1)
+    }
+
+    #others{
+    position: absolute;
+    }
+    .header--others{
+    padding: 10px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    }
+    .header--others .title--others{
+    font-size: 60px;
+    font-weight: bold;
+    }
+    .header--others .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1,25rem;
+    font-weight: bold;
+    }
+    .others--body{
+    padding: 10px 15px;
+    text-align: center;
+    }
+    .others--body p{
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: 30px;
+    text-align: left;
+}
+#overlay6{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+#overlay6.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+h2{
+    position: absolute;
+    color: white;
+    margin-left:70% ;
+    margin-top: 10%;
+}
+
+#link--home{
+    position: absolute;
+    color: white;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: 15px;
+}
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <h2> <i> changes, changes, changes</i></h2>
+    <div id="poster">
+        <div id="wrapper">
+
+            <!-- You -->
+            <button id="btn--you" data-you-target="#you"> YOU </button>
+                <div class="you" id="you">
+                <div class="header--you"> 
+                    <div class="title--you"> YOU change... </div>
+                    <button data-close-button class="close-button"> &times;</button>
+                </div>
+                <div class="you--body">
+                <p> 
+                    How shall the new environment be programmed <br> 
+                    now that we have become <br> 
+                    so involved with each other
+                </p>
+                </div>
+            </div>
+            <div id="overlay"></div>
+
+            <!-- Family -->
+            <button id="btn--fam" data-you-target="#fam"> FAMILY </button>
+                <div class="fam" id="fam">
+                <div class="header--fam"> 
+                    <div class="title--fam"> FAMILY changes... </div>
+                    <button data-close-button class="close-button"> &times;</button>
+                </div>
+                <div class="fam--body">
+                <p> 
+                    The family circle has widened.
+
+                </p>
+                </div>
+            </div>
+            <div id="overlay1"></div>
+
+            <!-- Neighborhood -->
+            <button id="btn--hood" data-you-target="#hood"> NEIGHBORHOOD </button>
+            <div class="hood" id="hood">
+            <div class="header--hood"> 
+                <div class="title--hood"> NEIGHBORHOOD changes... </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="hood--body">
+            <p> 
+                "a place for everything and everything <br>
+                in its place." You can't go home again.
+
+            </p>
+            </div>
+            </div>
+            <div id="overlay2"></div>
+
+            <!-- Education -->
+            <button id="btn--edu" data-you-target="#edu"> EDUCATION </button>
+            <div class="edu" id="edu">
+            <div class="header--edu"> 
+                <div class="title--edu"> EDUCATION changes... </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="edu--body">
+            <p> 
+                Today's child is growing up absurd, <br> 
+                because he lives in two worlds, <br> and neither
+                of them inclines him to grow up. 
+
+            </p>
+            </div>
+            </div>
+            <div id="overlay3"></div>
+
+            <!-- Job -->
+            <button id="btn--job" data-you-target="#job"> JOB </button>
+            <div class="job" id="job">
+            <div class="header--job"> 
+                <div class="title--job"> JOB changes... </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="job--body">
+            <p> 
+                once more into involving and
+                demanding roles <br>
+                or forms of work that
+                more and more resemble teaching,<br>
+                learning, and "human" service, <br>
+                in the older sense of dedicated loyalty.
+
+            </p>
+            </div>
+            </div>
+            <div id="overlay4"></div>
+
+            <!-- Government -->
+            <button id="btn--gov" data-you-target="#gov"> GOVERNMENT </button>
+            <div class="gov" id="gov">
+            <div class="header--gov"> 
+                <div class="title--gov"> GOVERNMENT changes... </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="gov--body">
+            <p> 
+                A new form of "politics" is emerging,<br>
+                and in ways we haven't yet noticed.
+
+            </p>
+            </div>
+            </div>
+            <div id="overlay5"></div>
+
+            <!-- Others -->
+            <button id="btn--others" data-you-target="#others"> "THE OTHERS" </button>
+            <div class="others" id="others">
+            <div class="header--others"> 
+                <div class="title--others"> THE OTHERS change... </div>
+                <button data-close-button class="close-button"> &times;</button>
+            </div>
+            <div class="others--body">
+            <p> 
+                Our new environment compels commitment and
+                participation.<br> We have become irrevocably involved with, and responsible
+                for,
+                each other.
+
+            </p>
+            </div>
+            </div>
+            <div id="overlay6"></div>
+
+        </div>
+    </div>
+
+    <p id="link--home"> <i> Link to </i><a href="index.html"><i> homepage</i> </a></p>
+
+
+    <!-- Javascript -->
+
+    <script>
+        // YOU
+        const openYouButtons = document.querySelectorAll('[data-you-target]')
+    const closeYouButtons = document.querySelectorAll('[data-close-button]')
+    const overlay = document.getElementById('overlay')
+
+    openYouButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const you = document.querySelector(button.dataset.youTarget)
+            openYou(you)
+        })
+    })
+
+    closeYouButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const you = button.closest('.you')
+            closeYou(you)
+        })
+    })
+
+    function openYou(you){
+        if(you == null) return
+        you.classList.add('active')
+        overlay.classList.add('active')
+    }
+    
+    function closeYou(you){
+        if(you == null) return
+        you.classList.remove('active')
+        overlay.classList.remove('active')
+    }
+
+    //  Family 
+    const openFamButtons = document.querySelectorAll('[data-fam-target]')
+    const closeFamButtons = document.querySelectorAll('[data-close-button]')
+    const overlay1 = document.getElementById('overlay1')
+
+    openFamButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const fam = document.querySelector(button.dataset.famTarget)
+            openFam(fam)
+        })
+    })
+
+    closeFamButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const fam = button.closest('.fam')
+            closeFam(fam)
+        })
+    })
+
+    function openFam(fam){
+        if(fam == null) return
+        fam.classList.add('active')
+        overlay1.classList.add('active')
+    }
+    
+    function closeFam(fam){
+        if(fam == null) return
+        fam.classList.remove('active')
+        overlay1.classList.remove('active')
+    }
+
+    // Neighborhood
+    const openHoodButtons = document.querySelectorAll('[data-hood-target]')
+    const closeHoodButtons = document.querySelectorAll('[data-close-button]')
+    const overlay2 = document.getElementById('overlay2')
+
+    openHoodButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const hood = document.querySelector(button.dataset.hoodTarget)
+            openHood(hood)
+        })
+    })
+
+    closeHoodButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const hood = button.closest('.hood')
+            closeHood(hood)
+        })
+    })
+
+    function openHood(hood){
+        if(hood == null) return
+        hood.classList.add('active')
+        overlay2.classList.add('active')
+    }
+    
+    function closeHood(hood){
+        if(hood == null) return
+        hood.classList.remove('active')
+        overlay2.classList.remove('active')
+    }
+
+    // Education
+    const openEduButtons = document.querySelectorAll('[data-edu-target]')
+    const closeEduButtons = document.querySelectorAll('[data-close-button]')
+    const overlay3 = document.getElementById('overlay3')
+
+    openEduButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const edu = document.querySelector(button.dataset.eduTarget)
+            openEdu(edu)
+        })
+    })
+
+    closeEduButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const edu = button.closest('.edu')
+            closeEdu(edu)
+        })
+    })
+
+    function openEdu(edu){
+        if(edu == null) return
+        edu.classList.add('active')
+        overlay3.classList.add('active')
+    }
+    
+    function closeEdu(edu){
+        if(edu == null) return
+        edu.classList.remove('active')
+        overlay3.classList.remove('active')
+    }
+
+    // JOB
+    const openJobButtons = document.querySelectorAll('[data-job-target]')
+    const closeJobButtons = document.querySelectorAll('[data-close-button]')
+    const overlay4 = document.getElementById('overlay4')
+
+    openJobButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const job = document.querySelector(button.dataset.jobTarget)
+            openJob(job)
+        })
+    })
+
+    closeJobButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const job = button.closest('.job')
+            closeJob(job)
+        })
+    })
+
+    function openJob(job){
+        if(job == null) return
+        job.classList.add('active')
+        overlay4.classList.add('active')
+    }
+    
+    function closeJob(job){
+        if(job == null) return
+        job.classList.remove('active')
+        overlay4.classList.remove('active')
+    }
+
+    // Government
+    const openGovButtons = document.querySelectorAll('[data-gov-target]')
+    const closeGovButtons = document.querySelectorAll('[data-close-button]')
+    const overlay5 = document.getElementById('overlay5')
+
+    openGovButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const gov = document.querySelector(button.dataset.govTarget)
+            openGov(gov)
+        })
+    })
+
+    closeGovButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const gov = button.closest('.gov')
+            closeGov(gov)
+        })
+    })
+
+    function openGov(gov){
+        if(gov == null) return
+        gov.classList.add('active')
+        overlay5.classList.add('active')
+    }
+    
+    function closeGov(gov){
+        if(gov == null) return
+        gov.classList.remove('active')
+        overlay5.classList.remove('active')
+    }
+    // OTHERS
+    const openOthersButtons = document.querySelectorAll('[data-others-target]')
+    const closeOthersButtons = document.querySelectorAll('[data-close-button]')
+    const overlay6 = document.getElementById('overlay6')
+
+    openOthersButtons.forEach(button => {
+        button.addEventListener('click',() =>{
+            const others = document.querySelector(button.dataset.othersTarget)
+            openOthers(others)
+        })
+    })
+
+    closeOthersButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const others = button.closest('.others')
+            closeOthers(others)
+        })
+    })
+
+    function openOthers(others){
+        if(others == null) return
+        others.classList.add('active')
+        overlay6.classList.add('active')
+    }
+    
+    function closeOthers(others){
+        if(others == null) return
+        others.classList.remove('active')
+        overlay6.classList.remove('active')
+    }
+
+
+    </script>
+</body>
+</html>
